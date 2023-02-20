@@ -3,8 +3,6 @@ import java.util.*;
 public class WaterJugMain {
     private static ArrayList<Object> listOfAllJugs = new ArrayList<>();
     private static ArrayList<Integer> listOfJugs = new ArrayList<>();
-    private static PriorityQueue<Map.Entry<List<Integer>, Double>> openStates = new PriorityQueue<>(Map.Entry.comparingByValue());
-    private static List<List<Integer>> closedStates = new ArrayList<>();
     private static int targetJugValue;
 
     public static void setJugValues(){
@@ -79,6 +77,8 @@ public class WaterJugMain {
     }
 
     public static int aStarSearch(ArrayList<Integer> capacities, int targetValue) {
+        PriorityQueue<Map.Entry<List<Integer>, Double>> openStates = new PriorityQueue<>(Map.Entry.comparingByValue());
+        List<List<Integer>> closedStates = new ArrayList<>();
         List<Integer> initialState = new ArrayList<>();
         List<List<Integer>> path = new ArrayList<>();
         int goalState = targetValue;
